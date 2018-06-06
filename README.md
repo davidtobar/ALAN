@@ -32,19 +32,21 @@
 
 ## Install
 
-To complete the instalation process you need to follow the following steps:
+To complete the installation process you need to follow the following steps:
 
-The first step that you need to do is download this repository, after that you need to put the project in the root folder of your server or the folder where do you want to publish the platform.
+ 1. Download this repository.
+ 2. Put the project in the root folder of your server or the folder where do you want to publish the platform.
+ 3. Create a database and its user with all the permissions.
+ 4. Acceed via URL to the platform.
 
-As a second step you have to create a database and its user with all the permissions.
+At the configuration panel you need to configure these tabs:
 
-After the database configuration, acced via URL to the platform and you will see the configuration panel with these tabs:
 - General: In this tab you will be able to establish all the general settings for your project, base URL, App name, logo, favicon and description.
 - Database: Add the information and user access of the pre-created database for your project.
 - User: Here you can create your first user with his general information, this user will have the administrator role.
 - Email: In the last tab you have to setup the SMTP credentials and the required information, this will allow you to send emails from the platform.
 
-Finally, when you complete the information of all tabs, save the configuration and you will be redireted to the login screen of the platform.
+Finally, when you complete the information of all tabs, save the configuration and you will be redirected to the login screen of the platform.
 
 ## License
 
