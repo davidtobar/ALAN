@@ -48,6 +48,12 @@ At the configuration panel you need to configure these tabs:
 
 Finally, when you complete the information of all tabs, save the configuration and you will be redirected to the login screen of the platform.
 
+**Additional notes:**
+
+ 1. The public directory needs permissions to write files as all subdirectories under it.
+ 2. Inside storage directory, logs directory and laravel.log file need all permissions.
+ 3. Inside storage/framework directory, sessions and views directories need all permissions too.
+
 ## License
 
 [MIT](https://github.com/elaniin/ALAN/blob/master/LICENSE)
