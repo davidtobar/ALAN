@@ -42,7 +42,7 @@ $lan = array(
     "api_details" => "Our API provides flexible tools that can be used creating new projects.",
     "credentials" => "Credentials",
     "conf" => "Configuration",
-    "conf_details" => "Sets here the basics of the system and enable special features.",
+    "conf_details" => "Configure and enable basic system options.",
     "database" => "Database",
     "advance" => "Advance",
     "level" => "Level",
@@ -56,7 +56,7 @@ $lan = array(
     "notification" => "Notification",
     "sent_by" => "Sent by",
     "mail" => "Mail",
-    "installation" => "Installation",
+    "installation" => "ALAN Installer",
 );
 
 ?>

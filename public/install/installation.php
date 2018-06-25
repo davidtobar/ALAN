@@ -44,114 +44,72 @@ if(isset($_POST['submit-form'])) {
 
     $curr_timestamp = date('Y-m-d H:i:s');
 
-    $sql1 = "INSERT INTO login (id, app_name, logo, favicon, description,created_at,updated_at) VALUES ('', '$APPNAME', '$LOGO', '$FAVICON', '$DESCRIPTION','$curr_timestamp','$curr_timestamp');";
+    $sql1 = "INSERT INTO login (id, app_name, logo, favicon, description,created_at,updated_at) VALUES (NULL, '$APPNAME', '$LOGO', '$FAVICON', '$DESCRIPTION','$curr_timestamp','$curr_timestamp');";
 
-    $sql2 = "INSERT INTO mail (id, mail_host, mail_port, smtp_email, password, from_name,created_at,updated_at) VALUES ('', '$MAIL_HOST', '$MAIL_PORT', '$SMTP_EMAIL','$MAIL_PASS','$FROM_NAME','$curr_timestamp','$curr_timestamp');";
+    $sql2 = "INSERT INTO mail (id, mail_host, mail_port, smtp_email, password, from_name,created_at,updated_at) VALUES (NULL, '$MAIL_HOST', '$MAIL_PORT', '$SMTP_EMAIL','$MAIL_PASS','$FROM_NAME','$curr_timestamp','$curr_timestamp');";
 
     $final_pass = password_hash($USER_PASS, PASSWORD_DEFAULT);
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHILMNOPQRSTUVWXYZ0123456789";
     $random = str_shuffle($chars);
 
-    $sql3 = "INSERT INTO users (id, name, username, email, phone, password, status,role,remember_token,created_at,updated_at) VALUES ('', '$USER_NAME', '$USERNAME', '$USER_EMAIL','$USER_PHONE','$final_pass',1,2,'$random','$curr_timestamp','$curr_timestamp');";
+    $sql3 = "INSERT INTO users (id, name, username, email, phone, password, status,role,remember_token,created_at,updated_at) VALUES (NULL, '$USER_NAME', '$USERNAME', '$USER_EMAIL','$USER_PHONE','$final_pass',1,2,'$random','$curr_timestamp','$curr_timestamp');";
 
     mysqli_query($connection,$sql1);
     mysqli_query($connection,$sql2);
     mysqli_query($connection,$sql3);
 
-     
-    //create the files
-        //create config file
-        $fp = fopen('../config.php','w');
-        $data = "";
-          fwrite($fp, $data);
-          fclose($fp);
+    mysqli_close($connection);
 
 
-        //ENV
-        $fp = fopen('../../.env','w');
-        $values = "APP_NAME=iRooms
-APP_ENV=local
-APP_KEY=base64:w2DLTOZaiKLl0vaBelZlFBftVxw3WRwu8XsswOELHko=
-APP_DEBUG=true
-APP_LOG_LEVEL=debug
-APP_URL=http:$BASE_URL
+    //ENV
+    $fp = fopen('../../.env','w') or die("Can't open file, verify permissions");
+    $values = "APP_NAME=ALAN
+    APP_ENV=local
+    APP_KEY=base64:w2DLTOZaiKLl0vaBelZlFBftVxw3WRwu8XsswOELHko=
+    APP_DEBUG=true
+    APP_LOG_LEVEL=debug
+    APP_URL=http:$BASE_URL
 
-DB_CONNECTION=mysql
-DB_HOST=$DATABASE_HOST
-DB_PORT=3306
-DB_DATABASE=$DATABASE_NAME
-DB_USERNAME=$DATABASE_USER
-DB_PASSWORD=$DATABASE_PASS
+    DB_CONNECTION=mysql
+    DB_HOST=$DATABASE_HOST
+    DB_PORT=3306
+    DB_DATABASE=$DATABASE_NAME
+    DB_USERNAME=$DATABASE_USER
+    DB_PASSWORD=$DATABASE_PASS
 
-BROADCAST_DRIVER=log
-CACHE_DRIVER=file
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
-QUEUE_DRIVER=sync
+    BROADCAST_DRIVER=log
+    CACHE_DRIVER=file
+    SESSION_DRIVER=file
+    SESSION_LIFETIME=120
+    QUEUE_DRIVER=sync
 
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
+    REDIS_HOST=127.0.0.1
+    REDIS_PASSWORD=null
+    REDIS_PORT=6379
 
-PUSHER_APP_ID=
-PUSHER_APP_KEY=
-PUSHER_APP_SECRET=
-PUSHER_APP_CLUSTER=mt1";
-        fwrite($fp, $values);
-        fclose($fp);
+    PUSHER_APP_ID=
+    PUSHER_APP_KEY=
+    PUSHER_APP_SECRET=
+    PUSHER_APP_CLUSTER=mt1";
+    fwrite($fp, $values);
+    fclose($fp);
 
-        //index
-        $fp = fopen('../config.php','w');
-        $data = "";
-          fwrite($fp, $data);
-          fclose($fp);
+    $fp2 = fopen('../conf.txt','w') or die("Can't open file, verify permissions");
+    $data2 = "";
+    fwrite($fp2, $data2);
+    fclose($fp2);
 
-        // Rename
-        rename('../index.php','../index3.php');
-        rename('../index2.php','../index.php');
+    // Rename
+    rename('../index.php','../app-example.php');
+    rename('../app.php','../index.php');
 
-        //create backups directory
-        if (!file_exists('backups')) {
-            mkdir('backups', 0777, true);
-        }
-        //create custom directory
-        if (!file_exists('custom')) {
-            mkdir('custom', 0777, true);
-        }
-        //create custom css
-        $fp = fopen('custom/custom.css','w');
-        fwrite($fp, "");
-        fclose($fp);
-        //create custom jss
-        $fp = fopen('custom/custom.js','w');
-        fwrite($fp, "");
-        fclose($fp);
+    //remove files
+    unlink("installation.php");
+    unlink("installation.txt");
+    //redirect to login
+    header("Location: ../", true, 302); 
 
-        //create custom php functions
-        $fp = fopen('custom/custom.class.php','w');
-        $customphp = "<?php
-/* 
-
-  Custom Functions Class 
-
-*/
-class CustomFunctions
-{
-
-
-
-}";
-        fwrite($fp, $customphp);
-        fclose($fp);
-
-        //remove files
-        unlink("installation.php");
-        // unlink("installation.txt");
-        //redirect to login
-        header("Location: ../", true, 302); 
-    }
-
-
+  }
 
 }
 
@@ -162,7 +120,7 @@ class CustomFunctions
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>iRooms Installer</title>
+  <title>ALAN Installer</title>
 
   <!-- ========== Css Files ========== -->
   <link href="assets/css/root.css" rel="stylesheet">
@@ -319,7 +277,7 @@ class CustomFunctions
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="input1" class="form-label">Phone</label>
-                            <input type="text" class="form-control" name="USER_PHONE" required>
+                            <input type="text" class="form-control" name="USER_PHONE">
                           </div>
                         </div>
                       </div>
@@ -328,19 +286,19 @@ class CustomFunctions
                       <div class="row">
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="input1" class="form-label">Mail host</label>
+                            <label for="input1" class="form-label">Host</label>
                             <input type="text" class="form-control" name="MAIL_HOST" required>
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="input1" class="form-label">Mail Port</label>
+                            <label for="input1" class="form-label">Port</label>
                             <input type="text" class="form-control" name="MAIL_PORT" required>
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="input1" class="form-label">Smtp Email</label>
+                            <label for="input1" class="form-label">SMTP Email</label>
                             <input type="email" class="form-control" name="SMTP_EMAIL" required>
                           </div>
                         </div>
@@ -348,13 +306,13 @@ class CustomFunctions
                       <div class="row">
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="input1" class="form-label">Password</label>
+                            <label for="input1" class="form-label">SMTP Password</label>
                             <input type="password" class="form-control" name="MAIL_PASS" required/>
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="input1" class="form-label">From Name</label>
+                            <label for="input1" class="form-label">SMTP Username</label>
                             <input type="text" class="form-control" name="FROM_NAME" required>
                           </div>
                         </div>

@@ -25,9 +25,9 @@
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
               <div class="header">
-                <!-- <h2>Welcome to iRooms</h2> -->
-                <!-- <img src="{{ asset('img/' . $login->logo) }}" alt="logo iRooms"> -->
-                <img src="{{$login->logo}}" alt="logo iRooms">
+                <!-- <h2>Welcome to ALAN</h2> -->
+                <!-- <img src="{{ asset('img/' . $login->logo) }}" alt="logo ALAN"> -->
+                <img src="{{$login->logo}}" alt="Logo ALAN">
                 <p>{{$login->description}}</p>
               </div>
             </div>

@@ -18,7 +18,9 @@ INSERT INTO `layouts` (`id`, `name`, `img`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE IF NOT EXISTS `login` (
   `id` int(10) UNSIGNED NOT NULL,
+  `app_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `logo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `favicon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL

@@ -41,7 +41,7 @@ $lan = array(
     "api_details" => "Nuestra API proporciona herramientas flexibles que se pueden utilizar en la creación de nuevos proyectos.",
     "credentials" => "Credenciales",
     "conf" => "Configuración",
-    "conf_details" => "Configura desde aqui los aspectos basicos del sistema y habilita funcionalidades especiales.",
+    "conf_details" => "Configure y habilite las opciones básicas del sistema.",
     "database" => "Base de datos",
     "advance" => "Avanzado",
     "level" => "Nivel",
@@ -55,7 +55,7 @@ $lan = array(
     "notification" => "Notificación",
     "sent_by" => "Enviado por",
     "mail" => "Correo",
-    "installation" => "Instalación",
+    "installation" => "Instalador ALAN",
 );
 
 ?>

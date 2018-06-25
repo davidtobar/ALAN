@@ -1,6 +1,6 @@
 <?php
 
-if (file_exists('config.php')) {
+if (file_exists('conf.txt')) {
 	header("Location: .", true, 302); 
 }else{
 	header("Location: install", true, 302);

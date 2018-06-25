@@ -11,7 +11,7 @@
             <p style="font-size: 16px;">Your login credentials are:</p>
             <p style="font-size: 16px;"><strong>Username:</strong> {{ $data['usern'] }}<br><br>
                <strong>Password:</strong> {{ $data['password'] }}<br></p>
-            <p style="font-size: 16px;">Click here to enter iRooms: {{ route('login') }}</p>
+            <p style="font-size: 16px;">Click here to enter: {{ route('login') }}</p>
         </div>
 
 </body>
