@@ -35,9 +35,14 @@
 To complete the installation process you need to follow the following steps:
 
  1. Download this repository.
- 2. Put the project in the root folder of your server or the folder where do you want to publish the platform.
- 3. Create a database and its user with all the permissions.
- 4. Acceed via URL to the platform.
+ 2. Install dependencies with the command: `composer install`
+ 3. Put the project in the root folder of your server or the folder where do you want to publish the platform.
+ 4. Create a database and its user with all the permissions.
+ 5. Acceed via URL to the platform.
+
+**Additional note:**
+
+ - In case if necessary, verify that the root and public directory have all necessary permissions to create, modify or delete files. You can do this with the command: `sudo chmod -R 775 [directory]`
 
 At the configuration panel you need to configure these tabs:
 
@@ -47,12 +52,6 @@ At the configuration panel you need to configure these tabs:
 - Email: In the last tab you have to setup the SMTP credentials and the required information, this will allow you to send emails from the platform.
 
 Finally, when you complete the information of all tabs, save the configuration and you will be redirected to the login screen of the platform.
-
-**Additional notes:**
-
- 1. The public directory needs permissions to write files as all subdirectories under it.
- 2. Inside storage directory, logs directory and laravel.log file need all permissions.
- 3. Inside storage/framework directory, sessions and views directories need all permissions too.
 
 ## License
 
